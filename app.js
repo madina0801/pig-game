@@ -33,7 +33,7 @@ const switchPlayer = function () {
   player1El.classList.toggle("player--active");
 };
 
-btnRoll.addEventListener("click", function () {
+btnRoll.addEventListener('click', function () {
   if (playing) {
     // Generate a random dice roll
     const dice = Math.trunc(Math.random() * 6) + 1;
@@ -53,7 +53,7 @@ btnRoll.addEventListener("click", function () {
   }
 });
 
-btnHold.addEventListener("click", function () {
+btnHold.addEventListener('click', function () {
   if (playing) {
     // Add curent score to the active player's score
     // scores[i] = scores[i] + currentScore;
@@ -61,9 +61,11 @@ btnHold.addEventListener("click", function () {
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
     // Check if player's score is >= 100
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
       // Finish the game
       playing = false;
+						diceEl.classList.add('hidden');
+
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add("player--winner");
@@ -76,3 +78,7 @@ btnHold.addEventListener("click", function () {
     }
   }
 });
+
+btnNew.addEventListener('click', function () {
+	
+})
